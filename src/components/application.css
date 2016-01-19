@@ -1,0 +1,40 @@
+#content {
+    display: flex;
+    flex-flow: column;
+    height: 100%;
+    -border: 1px solid greenyellow;
+}
+
+#header {
+    flex: 0 1 auto;
+}
+
+#main {
+    flex: 1 1 auto;
+    border: 1px solid #cccc33;
+    display: flex;
+}
+
+#bottom {
+    flex: 0 1 40px;
+    border: 1px solid #8888bb;
+}
+
+/*****************************************/
+
+#left {
+    border: 1px solid red;
+    flex: 0 1 200px;
+}
+
+#center {
+    display: flex;
+    border: 1px solid green;
+    flex: 1 1 auto;
+}
+
+#right {
+    border: 1px solid blue;
+    flex: 0 1 200px;
+}
+

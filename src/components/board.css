@@ -1,0 +1,17 @@
+
+:host {
+    background: magenta;
+    flex: 1 1 auto;
+    overflow: hidden;
+}
+
+/**
+ * When the window is resized we get an event. We react to that event by changing the size of the
+ * canvas. But this is not fast enough, so the canvas will not resize in sync with the rest of the app.
+ * We solve this by floating the canvas, so that it doesn't affect the rest of the layout.
+ */
+canvas {
+    position: absolute;
+    float: right;
+    overflow: hidden;
+}
