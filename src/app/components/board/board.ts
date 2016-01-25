@@ -4,6 +4,7 @@
 
 import {Component, ViewChild, ElementRef, Input, HostListener} from "angular2/core";
 import {AfterViewInit, OnChanges, SimpleChange} from "angular2/core";
+import {Engine} from "../../chess/engine";
 
 interface Square {
     x: number;
@@ -136,8 +137,8 @@ class Theme {
 
 @Component({
     selector: "board",
-    templateUrl: "src/components/board.html",
-    styleUrls: ["src/components/board.css"]
+    templateUrl: "./app/components/board/board.html",
+    styleUrls: ["./app/components/board/board.css"]
 })
 export class BoardComponent implements AfterViewInit, OnChanges {
     @Input()
@@ -162,12 +163,9 @@ export class BoardComponent implements AfterViewInit, OnChanges {
 
     static DRAG_THRESHOLD = 3;
 
-    constructor() {
-        let worker = new Worker("node_modules/stockfish/src/stockfish.js");
-        worker.onmessage = function(evt) {
-            console.log(evt.data);
-        };
-        worker.postMessage("d");
+    constructor(private _engine: Engine) {
+        _engine.eval();
+
     }
 
     @HostListener("window:resize", ["$event"])
